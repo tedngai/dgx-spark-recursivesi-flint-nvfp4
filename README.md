@@ -11,6 +11,14 @@ This is a screening workspace, not a production deployment. `production_qualifie
 is false everywhere. The recipe was verified on GB200; running it on GB10 is a
 measured finding, not an assumption.
 
+**Headline (measured, 2026-10-26):** 77.7 tok/s single-stream decode — **12×
+the dense 33B FP8 model** on the same host — 298 tok/s aggregate at C8, 200K
+prefill TTFT of 72.9 s (8.6× faster than the dense baseline), and working
+prefix caching for the hybrid attention. The one failure: at 200K context,
+recall of a code planted 85% deep in the document missed in 2 of 3 attempts
+(the dense model recalled 3/3 at every size). See
+[`docs/RESULTS.md`](docs/RESULTS.md).
+
 ## The model
 
 Flint is a 39.8B-parameter **mixture-of-experts** model (256 experts, top-6

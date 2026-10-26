@@ -1,0 +1,2602 @@
+{
+  "schema_version": 1,
+  "harness_revision": "vllm-capacity-v1-flint",
+  "kind": "benchmark",
+  "label": "short-c8-cold-20261026",
+  "started_at": "20261026T062806.895928Z",
+  "run_id": "a97ef242d2764f869785721ba8c5e3e9",
+  "workload": {
+    "label": "short-c8-cold-20261026",
+    "profile": "production",
+    "base_url": "http://127.0.0.1:8013",
+    "container": "vllm-flint-nvfp4",
+    "mode": "decode",
+    "cache": "cold",
+    "warmup_passes": 1,
+    "concurrency": 8,
+    "prompt_tokens": 1024,
+    "output_tokens": 256,
+    "rounds": 3,
+    "arrival_stagger_seconds": 0.0,
+    "seed": 20261026,
+    "prompt_set_id": null,
+    "timeout": 1800,
+    "policy": "capacity",
+    "memory_warning_mib": 8192,
+    "audit_container": false
+  },
+  "rounds": [
+    {
+      "round": 0,
+      "samples": [
+        {
+          "elapsed_seconds": 6.934564819559455,
+          "ttft_seconds": 1.0196718405932188,
+          "last_text_seconds": 6.934446595609188,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.02328651478352744,
+          "decode_tokens_per_second_estimate": 42.94330900506358,
+          "end_to_end_tokens_per_second": 36.91651987705602,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? They ask: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need craft answer. Must not mention analysis. Need likely detailed technical explanation. We should cover continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Use worked examples, don't stop early.\n\nWe need produce final answer. We can structure. Desired oververbosity 5, but request detailed. We should be comprehensive but not endless.\n\nLet's plan content.\n\nIntroduction: LLM inference server, goal maximize throughput/latency under serving.\n\n1. Continuous batching:\n- Problem: static batching waiting for slowest token. Dynamic batching.\n- Mechanism: scheduler maintains active requests, token buffers, finished. Each step, group requests that have next token ready, pad? Usually no padding for transformer? Use KV cache per request, append tokens. At each step, for each active request, forward last token (or tokens) through model with its KV cache; sample next token; append. When sequence length reaches max or finish, mark",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "5c7457d0fd0dfc851249f626d0280a075a08209ad5761090e0344246e8325606",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 0,
+          "client_start_offset_seconds": 0.001782214269042015
+        },
+        {
+          "elapsed_seconds": 6.933377679437399,
+          "ttft_seconds": 1.0194414053112268,
+          "last_text_seconds": 6.933173805475235,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023282411024267747,
+          "decode_tokens_per_second_estimate": 42.950878195461755,
+          "end_to_end_tokens_per_second": 36.92284076190305,
+          "stream_events": 251,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? They ask: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need craft answer. Must not mention analysis. Need likely detailed technical explanation. We should cover continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Use worked examples, don't stop early. We can structure.\n\nNeed be careful: final answer should be comprehensive. Desired oververbosity 5, but user asks detailed and don't stop early. We should provide substantial.\n\nLet's plan:\n\n- Intro: LLM inference server, real-time generation, batching.\n- Continuous batching:\n  - Problem with static batching: padding, uneven lengths, latency spikes.\n  - Mechanism: token budget, scheduling tokens for each request, cache eviction/residency, iteration over active batch.\n  - Worked example: 3 requests, lengths. Show slots, token budget. At step, select tokens ready, append, compute, maybe finish. Latency for long vs short.\n  - Throughput/latency trade-offs: batch size vs per-request",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "bc2fe3a616d520542be7be974e799f249e16b78a4f9fbb0b0ba8c8d1e6641924",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 1,
+          "client_start_offset_seconds": 0.002202169969677925
+        },
+        {
+          "elapsed_seconds": 6.933012414723635,
+          "ttft_seconds": 1.0188502203673124,
+          "last_text_seconds": 6.932789757847786,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 0,
+          "average_tpot_seconds_estimate": 0.023283226525513675,
+          "decode_tokens_per_second_estimate": 42.94937382944772,
+          "end_to_end_tokens_per_second": 36.92478603620166,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "created_cache_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Latency vs throughput.\n- Continuous batching: how it works, iteration, scheduler, partial sequences, execution.\n- KV cache: what it is, why needed, per-request, block cache, memory.\n- Prefix reuse: common prefixes, hash cache, prompt sharing, tree cache, paged attention.\n- Speculative decoding: draft model, target, acceptance, verification, speculation, lookahead.\n- Latency/throughput trade-offs: batch size vs latency, continuous batching vs static, KV cache memory, speculative increases throughput but adds latency; prefix reuse reduces compute but may complicate.\n- Worked examples: maybe batch of",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "3ece7e0f46959d7957a10c369e2a1a0051bddf6122d28a2f0b97e2d385aec845",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 2,
+          "client_start_offset_seconds": 0.0020890962332487106
+        },
+        {
+          "elapsed_seconds": 6.9336502235382795,
+          "ttft_seconds": 1.0186813697218895,
+          "last_text_seconds": 6.933424158021808,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.02328638893031464,
+          "decode_tokens_per_second_estimate": 42.943541095724896,
+          "end_to_end_tokens_per_second": 36.92138941923174,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, token-level scheduling, iteration over batches, how it works, example with requests.\n- KV cache: key-value cache per sequence, why needed, memory, sharing, prefix reuse.\n- Prefix reuse: common prefixes, tree cache, hash routing, example: \"The capital of France is\" shared, cache lookup.\n- Speculative decoding: draft model, target model, acceptance, example probabilities, tree? basic.\n- Latency/throughput trade-offs: batch size vs latency, continuous batching, speculative, prefix reuse, KV cache memory, quantization",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "e98571dca52eb0713fe4fbe5887f7f6c698c478be32f0f460aab906eaeab94f5",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 3,
+          "client_start_offset_seconds": 0.002359595149755478
+        },
+        {
+          "elapsed_seconds": 6.934958485886455,
+          "ttft_seconds": 1.0191959496587515,
+          "last_text_seconds": 6.9345770087093115,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.02328890180728567,
+          "decode_tokens_per_second_estimate": 42.93890747940555,
+          "end_to_end_tokens_per_second": 36.91442429266064,
+          "stream_events": 249,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce long-ish structured answer.\n\nWe need ensure technical accuracy.\n\nLet's plan final response:\n\n- Intro: LLM inference server, real-time serving.\n- Core problem: autoregressive generation, variable sequence lengths, batching.\n- Continuous batching:\n  - Scheduler, token buffers, KV cache allocation per request.\n  - Unlike static batching, continuous batches admit/reject/insert requests, swaps.\n  - Steps: token buffers, cache slots, compute, finish, free.\n  - Example: requests A needs 50 tokens, B needs 10. At step, B finishes, slot freed, C admitted. Batch composition changes.\n  - Latency: avoids padding waste, lower latency for small batch, throughput maybe lower due to",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "7e4baac170aef13e7c6c76c66bdcee8f5c55575a55c03e68cb8049086968f25d",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 4,
+          "client_start_offset_seconds": 0.0019631125032901764
+        },
+        {
+          "elapsed_seconds": 6.936148649081588,
+          "ttft_seconds": 1.019644943997264,
+          "last_text_seconds": 6.935909288004041,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023292379307113295,
+          "decode_tokens_per_second_estimate": 42.93249679712233,
+          "end_to_end_tokens_per_second": 36.90809020275205,
+          "stream_events": 254,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We need craft final. We have long repeated maintenance logs then request: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need respond. We should likely ignore repetitive logs? Maybe mention? Main task detailed technical explanation. Need not stop early. Must be comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So final should be long, structured.\n\nWe need write technical explanation. Include continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Worked examples. Do not stop early. We can include equations, diagrams in text. Should be accurate.\n\nLet's plan final response:\n\n- Intro: LLM inference server, batching, latency vs throughput.\n- Continuous batching:\n  - Problem with static batches: uneven token generation, GPU underutilization.\n  - Mechanism: scheduler maintains active requests, KV cache per request, token buffers. Each step: gather tokens from active requests, append, forward, sample next token, mark finished, remove; optionally add new request to waiting queue. Use",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "6f6385e450bc43fd7fa705a9d8476ad0892f1a9069d2a4c222a5a6edbdb06849",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 5,
+          "client_start_offset_seconds": 0.0016494952142238617
+        },
+        {
+          "elapsed_seconds": 6.934640116989613,
+          "ttft_seconds": 1.0192117411643267,
+          "last_text_seconds": 6.9344310611486435,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023288265039308333,
+          "decode_tokens_per_second_estimate": 42.94008155232247,
+          "end_to_end_tokens_per_second": 36.916119031586,
+          "stream_events": 253,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We need craft final. We have long repeated maintenance logs then request: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need respond. We should likely ignore repetitive logs? Maybe mention? Main task detailed technical explanation. Need not stop early. Must be comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So final should be long, structured.\n\nWe need write technical explanation. Include continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Worked examples. Do not stop early. We can include equations, diagrams in text. Need likely not actual code? Can include pseudocode maybe. Ensure no early stop.\n\nLet's plan final:\n\n- Intro: LLM inference server, batching strategies, KV cache, prefix reuse, speculative decoding, trade-offs.\n\n- 1. Inference basics and why batching matters:\n  - Autoregressive generation: token-by-token, each step depends on previous tokens. Latency per token high if sequential.\n  - Batching: group requests. Static vs dynamic",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "cd94a3e18ab90ba76a4e283ae6452d5997566bce76088e322315b8b9434ca0f9",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 6,
+          "client_start_offset_seconds": 0.0025317221879959106
+        },
+        {
+          "elapsed_seconds": 6.9098924193531275,
+          "ttft_seconds": 1.0186324920505285,
+          "last_text_seconds": 6.909326259046793,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 0,
+          "average_tpot_seconds_estimate": 0.023191707744079783,
+          "decode_tokens_per_second_estimate": 43.11886002682459,
+          "end_to_end_tokens_per_second": 37.048333673473536,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "created_cache_tokens": 1024
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? They ask: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need craft answer. Must not mention analysis. Need likely detailed technical explanation. We should probably ignore log spam? Maybe address? The final should be technical. Need use worked examples, don't stop early. We can structure.\n\nNeed be careful: \"continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe should provide detailed technical explanation. Could include:\n- LLM inference server architecture: token generation, autoregressive.\n- Latency: time to first token (TTFT), time per token, throughput tokens/s.\n- Continuous batching: dynamic batching vs static. PagedAttention? vLLM scheduler. Batch composition. Slot-based memory. In continuous batching, requests inserted/removed as previous finishes. Example: batch initially [A], A generates 50 tokens quickly, finishes; insert B while C still running. Without continuous batching,",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "40bca3d15aff643935d17475b1077fda81f6dc0fdc7886eadf3b3403913b6bd4",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 7,
+          "client_start_offset_seconds": 0.0015379581600427628
+        }
+      ],
+      "errors": [],
+      "started_at": "20261026T062807.342273Z",
+      "arrival_schedule": {
+        "mode": "synchronized",
+        "stagger_seconds": 0.0,
+        "planned_offsets_seconds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "elapsed_seconds": 6.93837390653789,
+      "peak_waiting_observed": 0.0,
+      "aggregate_tokens_per_second": 295.1700250789613,
+      "metrics_after": {
+        "at": "20261026T062814.287087Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 2048.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      "service_ready": true,
+      "completed": true
+    },
+    {
+      "round": 1,
+      "samples": [
+        {
+          "elapsed_seconds": 6.860678736120462,
+          "ttft_seconds": 0.9943899512290955,
+          "last_text_seconds": 6.860382668673992,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023094459517499593,
+          "decode_tokens_per_second_estimate": 43.300428799481544,
+          "end_to_end_tokens_per_second": 37.314092358267374,
+          "stream_events": 253,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We need craft final. We have long repeated maintenance logs then request: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need respond. We should likely ignore repetitive logs? Maybe mention? Main task detailed technical explanation. Need not stop early. Must be comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So final should be long, structured.\n\nWe need write technical explanation. Include continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Worked examples. Do not stop early. We can include equations, examples.\n\nLet's plan final:\n\n- Intro: LLM inference server context, requests variable lengths, latency vs throughput.\n- Continuous batching:\n  - Problem: static batching waits for slowest; dynamic batching.\n  - Mechanism: scheduler groups requests into batch; KV cache per request; execution order; tokens generated autoregressively; finish criteria; padding? Usually no padding or dynamic. Continuous batching maintains active requests, adds when capacity, removes on finish.\n  - Worked",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "96fa9a6cd818d67a1bddfdb29e5c42cb205c3c79b51195d64564625c26cf1c3c",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 0,
+          "client_start_offset_seconds": 0.0012557823210954666
+        },
+        {
+          "elapsed_seconds": 6.860295357182622,
+          "ttft_seconds": 0.993249548599124,
+          "last_text_seconds": 6.859972508624196,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023097334488287685,
+          "decode_tokens_per_second_estimate": 43.2950391096897,
+          "end_to_end_tokens_per_second": 37.316177609171305,
+          "stream_events": 254,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We need craft final. We have long repeated maintenance logs then request: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need respond. We should likely ignore repetitive logs? Maybe mention? Main task detailed technical explanation. Need not stop early. Must be comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So final should be long, structured.\n\nWe need write technical explanation. Include continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Worked examples. Do not stop early. We can include equations, diagrams in text. Need likely not actual code? Can include pseudocode maybe. Must be accurate.\n\nLet's plan final:\n\n- Intro: LLM inference server, goal maximize throughput/latency under load.\n- Inference modes: prefill, decode, chunking.\n- Continuous batching:\n  - Problem: static batching waits for slowest; dynamic requests arrive.\n  - Mechanism: scheduler batches tokens. PagedAttention / KV cache shared. Each request has token sequence. Scheduler assigns",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "dbc70951a369065df769db40f45568a0ed5c1d9cf7fb02af7531d9547a1cae8e",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 1,
+          "client_start_offset_seconds": 0.002184055745601654
+        },
+        {
+          "elapsed_seconds": 6.834260568022728,
+          "ttft_seconds": 0.8518808912485838,
+          "last_text_seconds": 6.833577863872051,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023549988081194753,
+          "decode_tokens_per_second_estimate": 42.462866501343356,
+          "end_to_end_tokens_per_second": 37.4583318051722,
+          "stream_events": 252,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We need craft final. We have long repeated maintenance logs then request: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need respond. We should likely ignore repetitive logs? Maybe mention? Main task detailed technical explanation. Need not stop early. Must be comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So final should be long, structured.\n\nWe need write technical explanation. Include continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Worked examples. Do not stop early. We can include equations, diagrams in text. Need likely not actual code? Can include pseudocode maybe. Must be accurate.\n\nLet's plan final:\n\n- Intro: LLM inference server context, why batching, caching, speculation.\n- 1. Inference basics: tokens, autoregressive, logits, sampling, latency per token, throughput tokens/s.\n- 2. Continuous batching:\n  - Problem with static batches: GPUs idle waiting for slowest; dynamic request arrivals.\n  - Mechanism: scheduler queues sequences",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "f0ef3e2bbed736c3c153415082654abc3f4ef222c41b11b2b1548a51fe6899da",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 2,
+          "client_start_offset_seconds": 0.001673925668001175
+        },
+        {
+          "elapsed_seconds": 6.859649067744613,
+          "ttft_seconds": 0.993617532774806,
+          "last_text_seconds": 6.859339753165841,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023093394568468643,
+          "decode_tokens_per_second_estimate": 43.30242559339389,
+          "end_to_end_tokens_per_second": 37.319693394194346,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, scheduler, slots, in-flight sequences, iteration. Example: two users prompts, batch size. Without continuous: wait for max batch. Continuous: group requests. Operations: token generation step, append, finalize. Batching multiple sequences: compute logits for each token, sample, append next token, etc. Paged? KV cache memory management.\n- KV cache: key/value per layer per head per token. For prompt and generated. Need cache allocation, eviction. Example transformer: K_t = W_K x_t, V_t = W_V x_t",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "f749d055b501555ddf451fbb38a8766a04485d9a231fda3b594838150694f656",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 3,
+          "client_start_offset_seconds": 0.0013968534767627716
+        },
+        {
+          "elapsed_seconds": 6.859387865290046,
+          "ttft_seconds": 0.9934879820793867,
+          "last_text_seconds": 6.859097097069025,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023092949271612748,
+          "decode_tokens_per_second_estimate": 43.30326058565679,
+          "end_to_end_tokens_per_second": 37.32111451160448,
+          "stream_events": 252,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? They ask: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need craft answer. Must not mention analysis. Need likely detailed technical explanation. We should probably ignore log spam? Maybe address? The prompt includes repeated maintenance log then asks technical explanation. We should focus on technical. Need use worked examples and do not stop early. We need maybe structured.\n\nWe need produce final answer. Desired oververbosity 5, but user asks detailed, worked examples, not stop early. So should be comprehensive.\n\nLet's plan content:\n\n- Introduction: LLM inference server, compute-heavy autoregressive generation, latency/throughput.\n- Continuous batching:\n  - Problem: static batching waits for slowest, poor latency for small/long, poor throughput for uneven lengths.\n  - Mechanism: scheduler maintains active requests, token buffers, KV cache per request, finished tokens removed? Iteration: for each step, gather tokens from active requests, run model, append logits, sample/select next token, check finish, free KV.\n  - Example: 4 requests",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "63dd1d86a0b4376afdab54d43a6d27b6b9ed2a54189acb5523021137a8351aec",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 4,
+          "client_start_offset_seconds": 0.0020268242806196213
+        },
+        {
+          "elapsed_seconds": 6.867577387019992,
+          "ttft_seconds": 1.0071806106716394,
+          "last_text_seconds": 6.867266908288002,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023071205896127413,
+          "decode_tokens_per_second_estimate": 43.3440715887267,
+          "end_to_end_tokens_per_second": 37.276609432003006,
+          "stream_events": 255,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, scheduler, slots, preemption? Example: batch has sequences lengths. Continuous batching keeps active sequences in batch, swaps. Compute token. Example with two sequences: \"The capital of France is\" and \"2+2=\". Batch. While one waiting for token, other runs. Memory.\n- KV cache: key/value tensors per layer per token, shape [n_heads, 2, batch, seq_len, head_dim]? Or flat. For batch B, layer L, K cache [B, n_heads, seq_len, head_dim],",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "f87c1271e16e812b53be5fb23f1803c0bccf3fc48b5dce0899c9bf1f998cb76b",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 5,
+          "client_start_offset_seconds": 0.0029064416885375977
+        },
+        {
+          "elapsed_seconds": 6.858564423397183,
+          "ttft_seconds": 0.9936234559863806,
+          "last_text_seconds": 6.858177542686462,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.023088795616929458,
+          "decode_tokens_per_second_estimate": 43.31105080538577,
+          "end_to_end_tokens_per_second": 37.32559529902296,
+          "stream_events": 254,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, token-level scheduling, iteration over batches, execution engines (vLLM, TensorRT-LLM, SGLang, DeepSpeed). Example: requests A,B,C. Without continuous batching: wait for all slots, low utilization. With continuous batching: at each step, only active requests; finish/pop; new arrivals fill. Token-level: each step append one token per active request; prefill maybe chunked. Worked example: batch of 4, some finishing. Step 0: req1 prefill tokens [A,B,C] ->",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "da69b9a65ac7fc8d3f3ae2fab3db34d462572f73e427630f862e3cbe8c6cf48c",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 6,
+          "client_start_offset_seconds": 0.0014976542443037033
+        },
+        {
+          "elapsed_seconds": 6.859221978113055,
+          "ttft_seconds": 0.9946207888424397,
+          "last_text_seconds": 6.859061721712351,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.0230883501294091,
+          "decode_tokens_per_second_estimate": 43.311886487992766,
+          "end_to_end_tokens_per_second": 37.32201710585616,
+          "stream_events": 254,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Latency vs throughput.\n- Continuous batching: why static batching bad, scheduler, token slots, execution order, padding, masking, prefill/decode, iteration. Worked example: 4 requests, batch size 2. Without continuous: wait for slowest. With continuous: slots. Example tokens.\n- KV cache: per-request key/value, attention, memory, cache size, eviction, sharing. Worked example: transformer layers, K,V dims d_kv, cache length n. Compute cost attention O(n^2) or efficient O(n). KV cache enables incremental decode. Memory management.\n- Prefix reuse: common",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "8b0d8cdbbd7cd2513faec976a45446181ced36882050854d045646fc3cd93d2d",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 7,
+          "client_start_offset_seconds": 0.0011704359203577042
+        }
+      ],
+      "errors": [],
+      "started_at": "20261026T062814.685145Z",
+      "arrival_schedule": {
+        "mode": "synchronized",
+        "stagger_seconds": 0.0,
+        "planned_offsets_seconds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "elapsed_seconds": 6.871147880330682,
+      "peak_waiting_observed": 0.0,
+      "aggregate_tokens_per_second": 298.05791341830906,
+      "metrics_after": {
+        "at": "20261026T062821.560064Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4096.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      "service_ready": true,
+      "completed": true
+    },
+    {
+      "round": 2,
+      "samples": [
+        {
+          "elapsed_seconds": 6.655932812020183,
+          "ttft_seconds": 0.9697534926235676,
+          "last_text_seconds": 6.631239499896765,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.022289314989264557,
+          "decode_tokens_per_second_estimate": 44.86454610568521,
+          "end_to_end_tokens_per_second": 38.4619267096087,
+          "stream_events": 252,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? They ask: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need craft answer. Must not mention analysis. Need likely detailed technical explanation. We should probably ignore log spam? Maybe address? The prompt includes repeated maintenance log then asks technical explanation. We should focus on technical. Need use worked examples and do not stop early. We need maybe structured.\n\nWe need produce comprehensive explanation. Desired oververbosity 5, but user asks detailed, worked examples, not stop early. We should give substantial answer.\n\nLet's plan:\n\n- Intro: LLM inference server, compute-heavy autoregressive generation, latency/throughput.\n- Continuous batching:\n  - Problem: standard static batching waits for slowest request. Dynamic continuous batching adds token, tracks scheduled tokens, hides latency.\n  - Mechanism: scheduler token-based. Each iteration, batch has active sequences. For each token from each active seq, forward through model, sample next, mark ready. Handle finished. Prefill new sequences. Recompute? \n  - Example: batch of",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "59f21891615dc4c6667ea135002962d5278ae576152500a0732ec4a59239991a",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 0,
+          "client_start_offset_seconds": 0.0015603266656398773
+        },
+        {
+          "elapsed_seconds": 6.655392715707421,
+          "ttft_seconds": 0.9705064091831446,
+          "last_text_seconds": 6.655103771016002,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.022380304574145107,
+          "decode_tokens_per_second_estimate": 44.682144368814896,
+          "end_to_end_tokens_per_second": 38.46504795965132,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? They ask: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need craft answer. Must not mention analysis. Need likely detailed technical explanation. We should probably ignore log spam? Maybe address? The prompt includes repeated maintenance log then asks technical explanation. We should focus on technical. Need use worked examples and do not stop early. We need maybe structured.\n\nWe need produce comprehensive explanation. Desired oververbosity 5, but user asks detailed, worked examples, not stop early. We should give deep dive.\n\nKey topics:\n- LLM inference server architecture: token generation, autoregressive.\n- Continuous batching: dynamic batching vs static. PagedAttention? vLLM, continuous batching with token-level scheduling. Example: multiple requests with different lengths. Without batching: high latency for small batch due to padding/waste. Continuous batching allows adding/removing sequences at token boundaries, no padding? Actually continuous batching uses scheduler that batches sequences, can have partially filled batch, append tokens one by one, remove finished. Example",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "1f188ba3fb67bc929a03bbb398dbafc31f236b9987ddaad16f0db06f5b5dbd48",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 1,
+          "client_start_offset_seconds": 0.0006666108965873718
+        },
+        {
+          "elapsed_seconds": 6.655767038464546,
+          "ttft_seconds": 0.9693446271121502,
+          "last_text_seconds": 6.655587723478675,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.022386783843962695,
+          "decode_tokens_per_second_estimate": 44.669212289271364,
+          "end_to_end_tokens_per_second": 38.46288467137485,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, token-level scheduling, iteration over batches, how it works, example with requests.\n- KV cache: key/value per layer per token, memory, reuse, decode/encode, example.\n- Prefix reuse: common prefix caching, hash, deduplication, example.\n- Speculative decoding: draft model, verify, acceptance, example.\n- Latency/throughput trade-offs: batch size, quantization, hardware, scheduling, speculative, prefix, KV. Worked examples numbers maybe.\n- Not stop early: cover all.\n\nNeed maybe mention session ID? No.",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "b4b3bc5c9ba2b96ac8b963ca5f8d3a807d2e419e110b8b1dc52990bc7ffc9b78",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 2,
+          "client_start_offset_seconds": 0.002002103254199028
+        },
+        {
+          "elapsed_seconds": 6.656309727579355,
+          "ttft_seconds": 0.9707612227648497,
+          "last_text_seconds": 6.656162926927209,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.02238347127622976,
+          "decode_tokens_per_second_estimate": 44.67582296147046,
+          "end_to_end_tokens_per_second": 38.45974879133177,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, token-level scheduling, iteration over batches, execution.\n- KV cache: key/value per layer per head per token, memory, benefits, prefill vs decode, cache allocation.\n- Prefix reuse: common prefixes, tree cache, radix attention, paged attention, prompt caching. Worked example: same system prompt, few-shot examples, multi-turn.\n- Speculative decoding: draft model, verification, acceptance, tree, sampling. Worked example: draft proposes k tokens, verify with target, accept/reject, fallback.\n- Latency/throughput trade-offs:",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "e50ca50f76e121700f5076ea45b1e1c2e63f4580581c108db735b070afe8c666",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 3,
+          "client_start_offset_seconds": 0.0007706433534622192
+        },
+        {
+          "elapsed_seconds": 6.657361283898354,
+          "ttft_seconds": 0.9704184234142303,
+          "last_text_seconds": 6.657091796398163,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.022388477846393435,
+          "decode_tokens_per_second_estimate": 44.66583243670986,
+          "end_to_end_tokens_per_second": 38.4536739232055,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, token-level scheduling, iteration, execution.\n- KV cache: per-request key/value cache, attention, why needed, memory, batching implications.\n- Prefix reuse: common prefix caching, prompt sharing, tree cache, paged attention, hash prefixes, reduce prefill compute.\n- Speculative decoding: draft model, target, acceptance, verification, tree, methods (Leviathan, FSA, Eagle), latency/throughput trade-offs.\n- Latency/throughput trade-offs: batch size, quantization, hardware, scheduling, TTFT, TPOT,",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "779e50a5bfdf9c351a185d2f6e20faec6c6849e4824fd4b636508606b9896a91",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 4,
+          "client_start_offset_seconds": 0.0009550265967845917
+        },
+        {
+          "elapsed_seconds": 6.6562083177268505,
+          "ttft_seconds": 0.9688450712710619,
+          "last_text_seconds": 6.655958283692598,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.022390209497722583,
+          "decode_tokens_per_second_estimate": 44.662377996137764,
+          "end_to_end_tokens_per_second": 38.4603347401582,
+          "stream_events": 254,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We need craft final. We have long repeated maintenance logs then request: \"Write a detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, and latency/throughput trade-offs in an LLM inference server. Use worked examples and do not stop early.\"\n\nWe need respond. We should likely ignore repetitive logs? Maybe mention? Main task detailed technical explanation. Need not stop early. Must be comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So final should be long, structured.\n\nWe need write technical explanation. Include continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs. Worked examples. Do not stop early. We can include equations, diagrams in text. Need likely not actual code? Can include pseudocode maybe. Must be accurate.\n\nLet's plan final:\n\n- Intro: LLM inference server, goal maximize throughput/latency under load.\n- Inference modes: prefill, decode, prefill-decode mixed. Continuous batching.\n  - Problem: static batching waits for slowest; continuous batching groups requests into slots.\n  - Example: tokens/s, batch size B, tokens per req. At time,",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "81fd41fc68d7ed36ffc288c5c2aeb9cec2b4f23164273d3154f1416494c880d7",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 5,
+          "client_start_offset_seconds": 0.002554122358560562
+        },
+        {
+          "elapsed_seconds": 6.655323963612318,
+          "ttft_seconds": 0.9700485188513994,
+          "last_text_seconds": 6.655019659548998,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.022381776144478734,
+          "decode_tokens_per_second_estimate": 44.679206580604,
+          "end_to_end_tokens_per_second": 38.46544531861535,
+          "stream_events": 255,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Throughput vs latency.\n- Continuous batching: dynamic batching, token-level scheduling, iteration over batches, execution engines (vLLM, TensorRT-LLM, SGLang, DeepSpeed). Example: requests A,B,C. Without continuous batching, wait for all. With continuous, at each step, schedule arriving tokens, finish sequences, batch active. PagedAttention maybe. Worked example:\n  - At step t, batch has sequences lengths. Compute logits for last tokens, sample next, append. Since variable lengths, use block size / padding / masks / CUDA graphs. Example batch: req1",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "38bdd983a3bffddb1d12861cb9a3f667702440cb230d091c75557bd547ed632b",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 6,
+          "client_start_offset_seconds": 0.0011318270117044449
+        },
+        {
+          "elapsed_seconds": 6.631271386519074,
+          "ttft_seconds": 0.9599301405251026,
+          "last_text_seconds": 6.630784314125776,
+          "completion_tokens": 256,
+          "prompt_tokens": 1026,
+          "cached_tokens": 16,
+          "average_tpot_seconds_estimate": 0.02232619753386092,
+          "decode_tokens_per_second_estimate": 44.790430546148976,
+          "end_to_end_tokens_per_second": 38.60496503286393,
+          "stream_events": 256,
+          "usage": {
+            "prompt_tokens": 1026,
+            "total_tokens": 1282,
+            "completion_tokens": 256,
+            "prompt_tokens_details": {
+              "cached_tokens": 16,
+              "created_cache_tokens": 1008
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 255
+            }
+          },
+          "answer_excerpt": "We need answer user. Need parse. We have huge repeated maintenance log irrelevant? Probably prompt injection? We need answer technical explanation. Must not stop early. Need detailed technical explanation of continuous batching, KV caches, prefix reuse, speculative decoding, latency/throughput trade-offs in LLM inference server. Use worked examples and do not stop early.\n\nWe need craft final answer. We can ignore log? Maybe mention not relevant. Need likely comprehensive. Desired oververbosity 5, but user asks detailed, worked examples, do not stop early. So produce robust answer.\n\nNeed structure:\n- Context: LLM inference server, tokens, autoregressive generation.\n- Latency vs throughput.\n- Continuous batching: why static batching bad, scheduler, token slots, execution order, padding, masking, memory, example.\n- KV cache: per-request cache, keys/values for tokens, attention, growing cache, shared prefix, example.\n- Prefix reuse: sharing KV cache among requests with common prefix, hash routing, cache lookup, eviction, example.\n- Speculative decoding: draft model, target, acceptance, verification, tree? Example probabilities.\n- Latency/throughput trade-offs: batch size vs per-request latency, continuous batching improves throughput but adds scheduling latency, KV cache memory",
+          "answer_excerpt_truncated": false,
+          "retrieved_codes": {},
+          "retrieval_passed": true,
+          "prompt_sha256": "9107a413e3b5625a02669cec1f448f06f7e430bc530c8437a5f4a77328c4d115",
+          "prompt_target_tokens": 1024,
+          "prompt_actual_tokens": 1024,
+          "client_index": 7,
+          "client_start_offset_seconds": 0.0005663707852363586
+        }
+      ],
+      "errors": [],
+      "started_at": "20261026T062821.919381Z",
+      "arrival_schedule": {
+        "mode": "synchronized",
+        "stagger_seconds": 0.0,
+        "planned_offsets_seconds": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "elapsed_seconds": 6.659400075674057,
+      "peak_waiting_observed": 0.0,
+      "aggregate_tokens_per_second": 307.5352098879123,
+      "metrics_after": {
+        "at": "20261026T062828.582641Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 6144.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 24.0,
+        "preemptions": 0.0
+      },
+      "service_ready": true,
+      "completed": true
+    }
+  ],
+  "passed": true,
+  "capacity_passed": true,
+  "quality_scope": "Synthetic forced-output speed only; not coding quality",
+  "policy": {
+    "mode": "capacity",
+    "memory_warning_mib": 8192,
+    "note": "Queueing and memory are reported; only completed work is a capacity gate"
+  },
+  "warnings": [],
+  "metrics": {
+    "samples": [
+      {
+        "at": "20261026T062806.941945Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062807.147887Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062807.385609Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062807.592733Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062807.800528Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062808.008137Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062808.216712Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 0.0,
+        "generation_tokens": 0.0,
+        "prefix_hits": 0.0,
+        "prefix_queries": 0.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062808.426588Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.006986796773020054,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 49.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062808.634833Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007029594915580639,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 145.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062808.859541Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007029594915580639,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 225.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062809.067583Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007072393058141224,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 313.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062809.274760Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.00711519120070192,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 393.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062809.480872Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.00711519120070192,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 473.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062809.687433Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007157989343262505,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 553.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062809.893999Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007313132610044737,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 633.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062810.100166Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.00720078748582309,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 713.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062810.307079Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007243585628383675,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 793.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062810.514302Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007243585628383675,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 865.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062810.720742Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007286383770944371,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 937.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062810.926851Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007307782842224664,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1009.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062811.133294Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007329181913504956,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1073.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062811.340133Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007484325180287188,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1145.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062811.546551Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007371980056065541,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1201.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062811.752174Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007527123322847773,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1273.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062811.958380Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007414778198626126,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1337.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062812.164367Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007569921465408358,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1401.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062812.371597Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007457576341186822,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1457.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062812.580680Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007612719607969054,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1529.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062812.786737Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007500374483747407,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1593.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062812.993845Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0075217735550277,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1649.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062813.200659Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007543172626307992,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1713.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062813.409614Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007698315893090224,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1785.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062813.618457Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007585970768868577,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1841.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062813.827035Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007607369840148981,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1905.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062814.036606Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007628768911429273,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 1969.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062814.245534Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007650167982709566,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 2033.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 0.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062814.451950Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 2048.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062814.659238Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 2048.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062814.868936Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 8208.0,
+        "generation_tokens": 2048.0,
+        "prefix_hits": 96.0,
+        "prefix_queries": 8208.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062815.079195Z",
+        "running": 7.0,
+        "waiting": 0.0,
+        "kv_usage": 0.009608183004857551,
+        "prompt_tokens": 9234.0,
+        "generation_tokens": 2049.0,
+        "prefix_hits": 208.0,
+        "prefix_queries": 15390.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062815.286469Z",
+        "running": 7.0,
+        "waiting": 0.0,
+        "kv_usage": 0.009608183004857551,
+        "prompt_tokens": 9234.0,
+        "generation_tokens": 2049.0,
+        "prefix_hits": 208.0,
+        "prefix_queries": 15390.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062815.493033Z",
+        "running": 7.0,
+        "waiting": 0.0,
+        "kv_usage": 0.009608183004857551,
+        "prompt_tokens": 9234.0,
+        "generation_tokens": 2049.0,
+        "prefix_hits": 208.0,
+        "prefix_queries": 15390.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062815.700186Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.006981447005199981,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2072.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062815.906648Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007002846076480274,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2160.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062816.112434Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007024245147760566,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2240.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062816.320137Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007067043290321151,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2320.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062816.528122Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007067043290321151,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2400.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062816.734993Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007109841432881847,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2472.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062816.941732Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007243585628383675,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2552.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062817.150189Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007152639575442432,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2632.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062817.357184Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007195437718003017,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2704.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062817.564994Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007195437718003017,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2784.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062817.771618Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007238235860563602,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2864.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062817.978832Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0072970833065845175,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 2944.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062818.186895Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007281034003124298,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3024.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062818.393832Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007323832145684883,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3096.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062818.601208Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007323832145684883,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3176.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062818.809812Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007366630288245468,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3248.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062819.018394Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007388029359525761,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3312.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062819.227756Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007409428430806053,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3376.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062819.436516Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007430827502086457,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3440.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062819.645175Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007452226573366749,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3512.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062819.854119Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007585970768868577,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3576.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062820.060373Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007495024715927334,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3640.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062820.267139Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007628768911429273,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3704.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062820.473995Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007537822858487919,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3768.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062820.680919Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007671567053989858,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3832.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062820.888133Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007580621001048504,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3896.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062821.095162Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007714365196550443,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 3960.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062821.302071Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0076234191436092,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4016.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062821.508902Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007644818214889493,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4080.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 8.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062821.714289Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4096.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062821.919096Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4096.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062822.125525Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4096.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062822.331982Z",
+        "running": 0.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0,
+        "prompt_tokens": 16416.0,
+        "generation_tokens": 4096.0,
+        "prefix_hits": 224.0,
+        "prefix_queries": 16416.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062822.539104Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.01097772356679716,
+        "prompt_tokens": 17442.0,
+        "generation_tokens": 4097.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062822.745724Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.01097772356679716,
+        "prompt_tokens": 17442.0,
+        "generation_tokens": 4097.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062822.952353Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.006981447005199981,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4137.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062823.158926Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007024245147760566,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4233.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062823.365456Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007024245147760566,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4313.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062823.572422Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007067043290321151,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4393.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062823.780176Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007222186557103383,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4473.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062823.987098Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007109841432881847,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4553.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062824.193190Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007152639575442432,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4641.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062824.399620Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007174038646722725,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4721.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062824.606447Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007195437718003017,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4801.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062824.813275Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007238235860563602,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4881.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062825.023161Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007238235860563602,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 4969.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062825.229904Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007281034003124298,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5041.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062825.436398Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007323832145684883,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5129.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062825.643920Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007323832145684883,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5201.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062825.850766Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007366630288245468,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5281.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062826.056984Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007366630288245468,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5353.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062826.263308Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007409428430806053,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5417.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062826.469958Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007409428430806053,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5481.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062826.676660Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007452226573366749,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5545.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062826.883987Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007452226573366749,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5609.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062827.091308Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007495024715927334,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5673.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062827.298888Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007495024715927334,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5737.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062827.509351Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007537822858487919,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5809.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062827.716608Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007559221929768212,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5873.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062827.924562Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007580621001048504,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 5937.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062828.131943Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007602020072328908,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 6001.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062828.339037Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.0076234191436092,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 6065.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      },
+      {
+        "at": "20261026T062828.546846Z",
+        "running": 8.0,
+        "waiting": 0.0,
+        "kv_usage": 0.007644818214889493,
+        "prompt_tokens": 24624.0,
+        "generation_tokens": 6129.0,
+        "prefix_hits": 352.0,
+        "prefix_queries": 24624.0,
+        "success": 16.0,
+        "preemptions": 0.0
+      }
+    ],
+    "errors": [],
+    "summary": {
+      "sample_count": 105,
+      "peak_running": 8.0,
+      "peak_waiting": 0.0,
+      "maximum_kv_cache_usage_fraction": 0.01097772356679716,
+      "generated_tokens": 6129.0,
+      "prefill_tokens": 24624.0,
+      "prefix_cache_hits": 352.0,
+      "prefix_cache_queries": 24624.0,
+      "prefix_cache_hit_rate": 0.014294996751137101,
+      "completed_requests": 16.0,
+      "preemptions": 0.0,
+      "counter_scope": "Counters are deltas from the pre-run idle snapshot, not server-lifetime totals",
+      "limitation": "Sampled gauges; short spikes can be missed between 0.2 s polls"
+    }
+  },
+  "memory": {
+    "samples": [
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 13166895104,
+        "cached_bytes": 13023424512,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14119510016
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12479389696,
+        "cached_bytes": 12286349312,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14121431040
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12448137216,
+        "cached_bytes": 12292513792,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14123470848
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12419072000,
+        "cached_bytes": 12295049216,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14124687360
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12396711936,
+        "cached_bytes": 12299984896,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14126563328
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12381364224,
+        "cached_bytes": 12299984896,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14127996928
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12362350592,
+        "cached_bytes": 12299984896,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14128812032
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12354887680,
+        "cached_bytes": 12300029952,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14129614848
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12353593344,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14130454528
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12337164288,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14131187712
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12337803264,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14131748864
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12336406528,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132363264
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12337319936,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132633600
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12332920832,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132641792
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12339482624,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132641792
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12329385984,
+        "cached_bytes": 12300423168,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132699136
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12332408832,
+        "cached_bytes": 12301041664,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132793344
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12337012736,
+        "cached_bytes": 12301041664,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132793344
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12314808320,
+        "cached_bytes": 12301049856,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132793344
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12306354176,
+        "cached_bytes": 12301049856,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14132793344
+      },
+      {
+        "mem_total_bytes": 130596102144,
+        "mem_available_bytes": 12306042880,
+        "cached_bytes": 12301037568,
+        "swap_total_bytes": 17179865088,
+        "swap_free_bytes": 14133215232
+      }
+    ],
+    "errors": [],
+    "sample_count": 21,
+    "mem_total_bytes": 130596102144,
+    "minimum_mem_available_bytes": 12306042880,
+    "median_mem_available_bytes": 12337803264,
+    "maximum_swap_used_bytes": 3060355072,
+    "limitation": "Sampled MemAvailable is host-wide. It cannot attribute memory to vLLM, the page cache, or another process, and one-second samples can miss peaks.",
+    "low_memory_warning": false
+  },
+  "server_before": {
+    "health": {
+      "status": "ok",
+      "http_status": 200
+    },
+    "model": {
+      "id": "flint",
+      "object": "model",
+      "created": 1792996086,
+      "owned_by": "vllm",
+      "root": "/models/flint-nvfp4/flint-nvfp4.gguf",
+      "parent": null,
+      "max_model_len": 262144,
+      "permission": [
+        {
+          "id": "modelperm-83786c437589214a",
+          "object": "model_permission",
+          "created": 1792996086,
+          "allow_create_engine": false,
+          "allow_sampling": true,
+          "allow_logprobs": true,
+          "allow_search_indices": false,
+          "allow_view": true,
+          "allow_fine_tuning": false,
+          "organization": "*",
+          "group": null,
+          "is_blocking": false
+        }
+      ]
+    },
+    "config": {
+      "status": "ready",
+      "served_model_name": "flint",
+      "root": "/models/flint-nvfp4/flint-nvfp4.gguf",
+      "context_length": 262144,
+      "owned_by": "vllm"
+    }
+  },
+  "profile": {
+    "profile": "production",
+    "frozen_at": "2026-10-26",
+    "model": {
+      "base_repo": "RecursiveSI/flint",
+      "base_revision": "2a247be0c0aec895ccb0ac7ca92229ec6df37288",
+      "gguf_repo": "RecursiveSI/flint-nvfp4-gguf",
+      "gguf_revision": "6ec43e19b565fc8d560e2d04985d7724f20673bf",
+      "gguf_file": "flint-nvfp4.gguf",
+      "architecture": "FlintForCausalLM",
+      "parameters": "39.8B MoE (256 experts, top-6 sigmoid routing + shared expert)",
+      "active_parameters": "2.5B",
+      "attention": "49 layers: 35 sliding-window (window 513, RoPE), 14 full (no RoPE); GQA 32/4; attention sinks",
+      "weights": "NVFP4 GGUF, served weight-only W4A16; LM head dequantized to BF16",
+      "local_dir": "models/flint-nvfp4",
+      "checkpoint_context": 262144
+    },
+    "engine": {
+      "name": "vLLM",
+      "version": "nightly (0.33.0rc1 or newer; Flint support is nightly-only)",
+      "image": "vllm/vllm-openai:nightly",
+      "image_digest": "sha256:6b90105076216e861cd30fae8828efef9263a0399137b894289f3b6a685bf4ff",
+      "image_id": "sha256:97cf01928777d971048d99155fdb236edfebce9947553a95b25249e17754285f",
+      "version_detail": "0.32.1rc1.dev466+ge4a5b5537, torch 2.14.0+cu130, gguf 0.19.0",
+      "note": "Nightly digest pinned 2026-10-26; Flint support and gguf>=0.19.0 are nightly-only."
+    },
+    "serving": {
+      "tensor_parallel_size": 1,
+      "served_model_name": "flint",
+      "host_port": 8013,
+      "max_model_len": 262144,
+      "max_num_seqs": 16,
+      "max_num_batched_tokens": 8192,
+      "gpu_memory_utilization": 0.85,
+      "kv_cache_dtype": "auto (BF16, per recipe)",
+      "enable_prefix_caching": true,
+      "enable_chunked_prefill": true,
+      "reasoning_parser": "glm47",
+      "tool_call_parser": "glm47",
+      "enable_auto_tool_choice": true,
+      "exclude_tools_when_tool_choice_none": true,
+      "compilation": "no torch.compile, CUDA graphs on (per recipe)"
+    },
+    "sampling_defaults": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "note": "From generation_config.json; greedy decoding is not validated for this model."
+    },
+    "expected_config": {
+      "served_model_name": "flint",
+      "context_length": 262144
+    },
+    "host": {
+      "minimum_free_gib": 100,
+      "minimum_available_gib": 60,
+      "note": "Before start: room for ~23.5 GB of resident weights and the KV pool."
+    },
+    "scope": {
+      "production_qualified": false,
+      "note": "Single Spark screening only. Recipe was verified on GB200, not GB10; kernel compatibility is itself a finding."
+    }
+  },
+  "initial_metrics": {
+    "at": "20261026T062806.935969Z",
+    "running": 0.0,
+    "waiting": 0.0,
+    "kv_usage": 0.0,
+    "prompt_tokens": 0.0,
+    "generation_tokens": 0.0,
+    "prefix_hits": 0.0,
+    "prefix_queries": 0.0,
+    "success": 0.0,
+    "preemptions": 0.0
+  },
+  "prompt_set_id": "a97ef242d2764f869785721ba8c5e3e9",
+  "token_targeting": [
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    },
+    {
+      "target": 1024,
+      "actual": 1024,
+      "sentences": 24,
+      "short_clauses": 3
+    }
+  ],
+  "server_after": {
+    "health": {
+      "status": "ok",
+      "http_status": 200
+    },
+    "model": {
+      "id": "flint",
+      "object": "model",
+      "created": 1792996108,
+      "owned_by": "vllm",
+      "root": "/models/flint-nvfp4/flint-nvfp4.gguf",
+      "parent": null,
+      "max_model_len": 262144,
+      "permission": [
+        {
+          "id": "modelperm-844e617ddca6d493",
+          "object": "model_permission",
+          "created": 1792996108,
+          "allow_create_engine": false,
+          "allow_sampling": true,
+          "allow_logprobs": true,
+          "allow_search_indices": false,
+          "allow_view": true,
+          "allow_fine_tuning": false,
+          "organization": "*",
+          "group": null,
+          "is_blocking": false
+        }
+      ]
+    },
+    "config": {
+      "status": "ready",
+      "served_model_name": "flint",
+      "root": "/models/flint-nvfp4/flint-nvfp4.gguf",
+      "context_length": 262144,
+      "owned_by": "vllm"
+    }
+  },
+  "configuration_drift": {},
+  "summary": {
+    "sample_count": 24,
+    "median_aggregate_tokens_per_second": 298.05791341830906,
+    "median_end_to_end_tokens_per_second_per_request": 37.32040395289941,
+    "latency_p50_seconds": 6.859518466517329,
+    "latency_p95_seconds": null,
+    "ttft_p50_seconds": 0.9936204943805933,
+    "ttft_p95_seconds": null,
+    "decode_tokens_per_second_p50_estimate": 43.30284308952534,
+    "percentile_caveat": "p95 omitted below 30 samples; larger sample counts still needed for reliable tails"
+  },
+  "finished_at": "20261026T062828.585126Z",
+  "completed_requests": 24,
+  "expected_requests": 24,
+  "production_qualified": false
+}

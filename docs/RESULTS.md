@@ -19,6 +19,36 @@
 No benchmark has been run at this point. Tables below are filled from
 `evidence/` only after a screen completes.
 
+## 2026-10-26 — first startup (healthy)
+
+`scripts/start.sh` reached `/health` in **156 s** end-to-end (92.5 s weight load
+of 21.86 GiB, 39.7 s profile/KV/graph warmup). Findings from the container log:
+
+- **GB10 has no native FP4 tensor cores.** vLLM logs: *"Your GPU does not have
+  native support for FP4 computation... weight-only FP4 compression will be used
+  leveraging the Marlin kernel."* The NVFP4 checkpoint therefore runs as Marlin
+  W4A16 — 4-bit weight bandwidth, but dequantized compute. The recipe's
+  native-FP4 GB200 advantage does not transfer; that gap is part of what this
+  workspace measures.
+- **CUDA graphs still active under `mode: 0`.** vLLM overrode
+  `FULL_AND_PIECEWISE` → `FULL_DECODE_ONLY` (decode-only graphs, sizes
+  1–32). Prefill runs eager, decode is graph-captured (0.59 GiB).
+- **`--enable-prefix-caching` was accepted** by the hybrid-attention model
+  (7 padding layers noted, ≤20% KV waste). Real reuse was proven by the smoke:
+  960/960 `cached_tokens` on an identical follow-up.
+- **KV cache: 79.87 GiB → 2,505,978 tokens**, i.e. 9.56 concurrent full-length
+  262K requests. BF16 KV, `LBNH` layout.
+- **Engine confirmed the sampling defaults** from `generation_config.json`
+  (temperature 1.0, top_p 0.95, top_k 20) as its own defaults.
+- GGUF layernorm weights are FP32-on-disk and cast to BF16 (benign warnings).
+- The model decides per turn whether to reason; a tight `max_tokens` budget can
+  be consumed entirely by reasoning (smoke budgets were raised accordingly).
+
+Smoke interface (`evidence/…smoke-interface-final.json`): **7/7 PASS** — chat,
+stream, reasoning split by the `glm47` parser, tool call, forced output,
+tokenize, prefix reuse. Two earlier runs are retained as evidence of the budget
+issue described above.
+
 ## Measured screens
 
 _Not yet measured._

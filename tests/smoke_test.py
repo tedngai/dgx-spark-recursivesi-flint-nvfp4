@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Interface smoke for the served Nanbeige checkpoint: chat, stream, reasoning, tools, reuse."""
+"""Interface smoke for the served Flint checkpoint: chat, stream, reasoning, tools, reuse."""
 
 import argparse
 import json
@@ -68,10 +68,10 @@ def run(args, report):
     report["checks"] = {}
     checks = report["checks"]
 
-    marker = "NANBEIGE-READY-" + uuid.uuid4().hex[:8]
+    marker = "FLINT-READY-" + uuid.uuid4().hex[:8]
     buffered = chat(client, [{"role": "user",
                               "content": f"Reply with exactly {marker} and nothing else."}],
-                    max_tokens=48, sampling={"temperature": 0.1, "top_p": 0.95, "top_k": 20})
+                    max_tokens=256, sampling={"temperature": 0.1, "top_p": 0.95, "top_k": 20})
     answer = message_text(buffered["data"])
     checks["chat"] = {"passed": marker in answer, "seconds": buffered["seconds"],
                       "answer_excerpt": answer[:200]}
@@ -79,7 +79,8 @@ def run(args, report):
     streamed = chat(client, [{"role": "user",
                               "content": "Count from one to five, separated by spaces. "
                                          "Do not think, answer directly."}],
-                    max_tokens=96, stream=True)
+                    max_tokens=128, stream=True,
+                    sampling={"temperature": 0.1, "top_p": 0.95, "top_k": 20})
     text, _ = stream_text(streamed["events"])
     checks["stream"] = {"passed": bool(text.strip()), "seconds": streamed["seconds"],
                         "events": len(streamed["events"]), "answer_excerpt": text[:200]}
@@ -94,7 +95,7 @@ def run(args, report):
                            "seconds": thinking["seconds"],
                            "reasoning_characters": len(reasoning),
                            "answer_excerpt": text[:200],
-                           "note": "Thinking is on by default; the qwen3 parser should split it"}
+                           "note": "Flint decides when to reason; the glm47 parser should split it"}
 
     tools = [{
         "type": "function",
@@ -128,7 +129,7 @@ def run(args, report):
                                "completion_tokens": usage.get("completion_tokens"),
                                "prompt_tokens": usage.get("prompt_tokens")}
 
-    tokenized = client.token_count("Nanbeige tokenization smoke.")
+    tokenized = client.token_count("Flint tokenization smoke.")
     checks["tokenize"] = {"passed": tokenized > 0, "prompt_tokens": tokenized}
 
     # Prefix caching is part of the frozen profile: an identical follow-up should

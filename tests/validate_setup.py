@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read-only preflight for the Nanbeige4.3-33B vLLM workspace. Sends no inference."""
+"""Read-only preflight for the Flint NVFP4 vLLM workspace. Sends no inference."""
 
 import argparse
 import json

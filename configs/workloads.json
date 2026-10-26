@@ -1,0 +1,96 @@
+{
+  "profile": "production",
+  "note": "Screens run one workload per freshly started server. Each stage is a separate evidence report. The matrix matches the Nanbeige4.3-33B workspace for comparability.",
+  "stages": [
+    {
+      "label": "short-c1-cold",
+      "mode": "decode",
+      "cache": "cold",
+      "concurrency": 1,
+      "prompt_tokens": 1024,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "short-c2-cold",
+      "mode": "decode",
+      "cache": "cold",
+      "concurrency": 2,
+      "prompt_tokens": 1024,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "short-c4-cold",
+      "mode": "decode",
+      "cache": "cold",
+      "concurrency": 4,
+      "prompt_tokens": 1024,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "short-c8-cold",
+      "mode": "decode",
+      "cache": "cold",
+      "concurrency": 8,
+      "prompt_tokens": 1024,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "short-c1-warm",
+      "mode": "decode",
+      "cache": "warm",
+      "concurrency": 1,
+      "prompt_tokens": 1024,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "prefill-16384-c1-cold",
+      "mode": "decode",
+      "cache": "cold",
+      "concurrency": 1,
+      "prompt_tokens": 16384,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "prefill-32768-c1-cold",
+      "mode": "decode",
+      "cache": "cold",
+      "concurrency": 1,
+      "prompt_tokens": 32768,
+      "output_tokens": 256,
+      "rounds": 3
+    },
+    {
+      "label": "retrieval-32768-c1-cold",
+      "mode": "retrieval",
+      "cache": "cold",
+      "concurrency": 1,
+      "prompt_tokens": 32768,
+      "output_tokens": 512,
+      "rounds": 3
+    },
+    {
+      "label": "retrieval-100000-c1-cold",
+      "mode": "retrieval",
+      "cache": "cold",
+      "concurrency": 1,
+      "prompt_tokens": 100000,
+      "output_tokens": 512,
+      "rounds": 3
+    },
+    {
+      "label": "retrieval-200000-c1-cold",
+      "mode": "retrieval",
+      "cache": "cold",
+      "concurrency": 1,
+      "prompt_tokens": 200000,
+      "output_tokens": 512,
+      "rounds": 3
+    }
+  ]
+}

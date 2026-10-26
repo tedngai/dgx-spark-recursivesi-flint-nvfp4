@@ -1,0 +1,63 @@
+{
+  "profile": "production",
+  "frozen_at": "2026-10-26",
+  "model": {
+    "base_repo": "RecursiveSI/flint",
+    "base_revision": "2a247be0c0aec895ccb0ac7ca92229ec6df37288",
+    "gguf_repo": "RecursiveSI/flint-nvfp4-gguf",
+    "gguf_revision": "6ec43e19b565fc8d560e2d04985d7724f20673bf",
+    "gguf_file": "flint-nvfp4.gguf",
+    "architecture": "FlintForCausalLM",
+    "parameters": "39.8B MoE (256 experts, top-6 sigmoid routing + shared expert)",
+    "active_parameters": "2.5B",
+    "attention": "49 layers: 35 sliding-window (window 513, RoPE), 14 full (no RoPE); GQA 32/4; attention sinks",
+    "weights": "NVFP4 GGUF, served weight-only W4A16; LM head dequantized to BF16",
+    "local_dir": "models/flint-nvfp4",
+    "checkpoint_context": 262144
+  },
+  "engine": {
+    "name": "vLLM",
+    "version": "nightly (0.33.0rc1 or newer; Flint support is nightly-only)",
+    "image": "vllm/vllm-openai:nightly",
+    "image_digest": "sha256:6b90105076216e861cd30fae8828efef9263a0399137b894289f3b6a685bf4ff",
+    "image_id": "sha256:97cf01928777d971048d99155fdb236edfebce9947553a95b25249e17754285f",
+    "version_detail": "0.32.1rc1.dev466+ge4a5b5537, torch 2.14.0+cu130, gguf 0.19.0",
+    "note": "Nightly digest pinned 2026-10-26; Flint support and gguf>=0.19.0 are nightly-only."
+  },
+  "serving": {
+    "tensor_parallel_size": 1,
+    "served_model_name": "flint",
+    "host_port": 8013,
+    "max_model_len": 262144,
+    "max_num_seqs": 16,
+    "max_num_batched_tokens": 8192,
+    "gpu_memory_utilization": 0.85,
+    "kv_cache_dtype": "auto (BF16, per recipe)",
+    "enable_prefix_caching": true,
+    "enable_chunked_prefill": true,
+    "reasoning_parser": "glm47",
+    "tool_call_parser": "glm47",
+    "enable_auto_tool_choice": true,
+    "exclude_tools_when_tool_choice_none": true,
+    "compilation": "no torch.compile, CUDA graphs on (per recipe)"
+  },
+  "sampling_defaults": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "note": "From generation_config.json; greedy decoding is not validated for this model."
+  },
+  "expected_config": {
+    "served_model_name": "flint",
+    "context_length": 262144
+  },
+  "host": {
+    "minimum_free_gib": 100,
+    "minimum_available_gib": 60,
+    "note": "Before start: room for ~23.5 GB of resident weights and the KV pool."
+  },
+  "scope": {
+    "production_qualified": false,
+    "note": "Single Spark screening only. Recipe was verified on GB200, not GB10; kernel compatibility is itself a finding."
+  }
+}

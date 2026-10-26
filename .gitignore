@@ -1,0 +1,18 @@
+# Local state is never committed.
+.env
+.env.*
+!.env.example
+
+# Model weights (33 GiB) and caches.
+models/
+cache/
+
+# Logs, secrets and generated state.
+logs/
+secrets/
+state/
+
+# Harness scratch.
+.benchmark.lock
+__pycache__/
+*.pyc
